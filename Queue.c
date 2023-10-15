@@ -16,8 +16,6 @@
             switch(choice)
             {
                 case 1:
-                printf("Enter the value to be inserted:");
-                scanf("%d",&value);
                 enqueue(value);
                 break;
                 
@@ -25,14 +23,14 @@
                 dequeue();
                 break;
 
-            case 3:
-            display();
-            break;
+                case 3:
+                display();
+                break;
 
-            case 4:
-            exit(0);
+                case 4:
+                exit(0);
 
-            default: printf("Wrong Selection");
+                default: printf("Wrong Selection");
             }
         }
     }
@@ -40,11 +38,15 @@
     void enqueue(int value)
     {
         if(rear==size-1)
-        printf("\nQueue is full\n");
+        {
+        printf("\nQueue overflow\n");
+        }
         else
         {
             if(front==-1)
             front=0;
+             printf("Enter the value to be inserted:");
+                scanf("%d",&value);
             rear++;
             queue[rear]=value;
             printf("\nInsertion success\n");
@@ -56,7 +58,7 @@
         int item;
         if(front==-1 || front>rear)
         {
-            printf("\nUnderflow\n");
+            printf("\nQueue underflow\n");
             return;
         }
         else{
@@ -71,7 +73,7 @@
 
                 front=front+1;
             }
-            printf("\n Deleted %d\n",item);
+            printf("Deleted %d\n",item);
         }
         
     }
@@ -84,7 +86,7 @@
             int i;
             printf("Queue elements are:");
             for(i=front;i<=rear;i++)
-            printf("\n %d \n",queue[i]);
+            printf("%d\n",queue[i]);
             }
     
     }
