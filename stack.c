@@ -11,7 +11,7 @@ void main()
     while(1)
     {
         printf("\n1.Push\n2.Pop\n3.Display\n4.Exit\n");
-        printf("Enter your choice:");
+        printf("\nEnter your choice:");
         scanf("%d",&choice);
         switch(choice)
         {
@@ -34,28 +34,30 @@ void main()
         }    
     }
 }
- void push(value)
+ void push(int value)
  {
     if(top==SIZE-1)
     {
-    printf("Stack is Full");
+    printf("Stack Overflow\n");
     }
     else
     {
         printf("Enter the value to be inserted:");
-        scanf("&d",&value);
+        scanf("%d",&value);
         top++;
         stack[top]=value;
+        printf("\nInsertion success\n");
+
     
     }
  }
  void pop()
  {
     if(top==-1)
-    printf("Stack is empty");
+    printf("Stack underflow\n");
     else
     {
-        printf("Deleted %d",stack[top]);
+        printf("Deleted %d\n",stack[top]);
         top--;
     
     }
@@ -68,7 +70,7 @@ void main()
     {
         int i;
         printf("Stack elements are:");
-        for(i=top;i>0;i--)
-        printf("%d",stack[i]);
+        for(i=top;i>=0;i--)
+        printf("%d\n",stack[i]);
     }
  }
